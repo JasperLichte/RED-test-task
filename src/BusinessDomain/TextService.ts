@@ -10,8 +10,8 @@ class TextService {
         u: 32,
     };
 
-    public async getSumOfAllDigits(pathToFile: string, fn: (text: string) => number): Promise<number> {
-        return fn((await fs.readFile(pathToFile)).toString());
+    public async getSumOfAllDigits<T>(pathToFile: string, fn: (text: string, service: TextService|undefined) => T): Promise<T> {
+        return fn((await fs.readFile(pathToFile)).toString(), this);
     }
 
     public calculateSumOfAllDigits(text: string): number {
@@ -23,6 +23,10 @@ class TextService {
             ? ~~curr
             : 'aeiou'.split('').includes(curr) ? TextService.VOCAL_VALUE_MAPPING[curr] : 0
         ), 0);
+    }
+
+    public calculateSumOfAllDigitsPerSentence(text: string, service: TextService): number[] {
+        return text.split(/(\?|\.|!)/).map(curr => service.calculateSumOfAllDigits(curr));
     }
 
 }
