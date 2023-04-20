@@ -1,4 +1,7 @@
 import HelloHandler from '../Infrastructure/Handler/HelloHandler.js';
+import Task1Handler from '../Infrastructure/Handler/Tasks/Task1Handler.js';
+import Task2Handler from '../Infrastructure/Handler/Tasks/Task2Handler.js';
+import Task3Handler from '../Infrastructure/Handler/Tasks/Task3Handler.js';
 
 type Route = {
     path: string,
@@ -7,7 +10,10 @@ type Route = {
 };
 
 const routes: Route[] = [
-    {path: '/', method: 'GET', handler: HelloHandler,}
+    {path: '/', method: 'GET', handler: HelloHandler,},
+    {path: '/task1', method: 'GET', handler: Task1Handler,},
+    {path: '/task2', method: 'GET', handler: Task2Handler,},
+    {path: '/task3', method: 'GET', handler: Task3Handler,},
 ];
 
 export default routes;

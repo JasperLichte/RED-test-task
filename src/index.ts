@@ -1,6 +1,6 @@
 import * as http from 'http';
 import HandlerFactory from './Infrastructure/Handler/Factory/HandlerFactory.js';
-import ErrorHandler from './Infrastructure/Handler/Errorhandler.js';
+import ErrorHandler from './Infrastructure/Handler/ErrorHandler.js';
 
 
 const port = 3000;
